@@ -1,0 +1,45 @@
+#!/usr/bin/env bash
+# Installs, configures, and starts the server
+# Configure my Nginx server
+#    so that /redirect_me is redirecting to another page.
+#
+# The redirection must be a “301 Moved Permanently”
+# Using what i did with 1-install_nginx_web_server,
+#       write 3-redirection so that it configures a brand new
+#       Ubuntu machine to the requirements asked in this task
+#
+# Configures a new ubuntu machine by installing
+#     Nginx where it should be listening on port 80
+# Serve a page that would return a Hello World string
+# Author Wycliffe Ochieng
+
+
+echo -e "Updating and installing Nginx.\n"
+sudo apt-get update -y -qq && \
+         sudo apt-get install nginx -y
+
+echo -e "\nSetting up some minor stuff.\n"
+
+# starting nginx service
+sudo service nginx start
+
+# allowing nginx on firewall
+sudo ufw allow 'Nginx HTTP'
+
+# Give the user ownership to website files for easy editing
+sudo chown -R "$USER":"$USER" /var/www/html
+sudo chmod -R 755 /var/www
+
+# Backup default index
+cp /var/www/html/index.nginx-debian.html /var/www/html/index.nginx-debian.html.bckp
+
+# Creating new index
+echo -e "Hello World!" > /var/www/html/index.nginx-debian.html
+
+# Setting up /redirect_me to a youtube video
+sudo sed -i '24i\       rewrite ^/redirect_me https://www.youtube.com/watch?v=QH2-TGUlwu4 permanent;' /etc/nginx/sites-available/default
+
+# Restarting nginx
+sudo service nginx restart
+
+echo -e "\nCompleted.\n"
