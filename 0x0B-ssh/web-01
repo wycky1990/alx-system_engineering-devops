@@ -1,0 +1,5 @@
+#!/usr/bin/env bash
+# Connects to server 52.86.133.162 with key in ~/.ssh/school
+# Author Wycliffe ochieng
+
+ssh -i ~/.ssh/school ubuntu@52.86.133.162
