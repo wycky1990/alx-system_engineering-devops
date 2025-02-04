@@ -1,0 +1,14 @@
+#!/usr/bin/env bash
+# a Bash script that configures Fixes a web server to run Nginx as the nginx user.
+# a Bash script that configures 
+#        nginx must be running as nginx user
+#        nginx must be listening on all active IPs on port 8080
+#        Cannot use apt-get remove
+
+sed -i "s/#user www-data/user nginx/" /etc/nginx/nginx.conf
+sed -i "s/80/8080/g" /etc/nginx/sites-available/default
+chmod 644 /etc/nginx/nginx.conf
+
+pkill apache2
+
+sudo -u nginx service nginx start
