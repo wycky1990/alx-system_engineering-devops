@@ -1,6 +1,9 @@
 
+<<<<<<< HEAD
 SE Foundations
 Average: 120.14%
+=======
+>>>>>>> 2d304e61c61f28698e14ca3c9d1b3c5fdb822762
 0x17. Web stack debugging #3
 DevOps
 SysAdmin
@@ -8,7 +11,11 @@ Scripting
 Debugging
  Weight: 1
  Project will start Feb 25, 2025 7:00 AM, must end by Feb 27, 2025 7:00 AM
+<<<<<<< HEAD
  Checker will be released at Feb 26, 2025 2:12 PM
+=======
+ Checker was released at Feb 26, 2025 2:12 PM
+>>>>>>> 2d304e61c61f28698e14ca3c9d1b3c5fdb822762
  An auto review will be launched at the deadline
 Concepts
 For this project, we expect you to look at these concepts:
